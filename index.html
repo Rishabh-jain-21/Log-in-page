@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<hmtl>
 
+    <head>
+        <title>Rishabh Jain </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            #t1 {
+                display: none;
+            }
+            
+            #s1 {
+                display: none;
+                color: red;
+            }
+            
+            #in1 {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <br><br>
+        <center><input type="checkbox" id="cb1"> Click on check-box to fill your information here:
+            <form action="">
+                <table id="t1" class="table table-container">
+                    <tr class="info" style="text-align : center;">
+                        <td>Name </td>
+                        <td> <input type="text" id="i1" required></td>
+                    </tr>
+                    <tr class="info" style="text-align : center;">
+                        <td>Email </td>
+                        <td> <input type="email" id="i2" required></td>
+                    </tr>
+                    <tr class="info" style="text-align : center;">
+                        <td>Password </td>
+                        <td> <input type="password" id="i3" required> </td>
+                    </tr>
+                    <tr class="info" style="text-align : center;">
+                        <td>Re-type Password </td>
+                        <td> <input type="password" id="i4" required><span id="s1">password mismsatch</span> </td>
+                    </tr>
+
+                </table>
+                <input type="submit" id="in1">
+            </form>
+        </center>
+    </body>
+    <script>
+        $(document).ready(function() {
+            $('#cb1').click(function() {
+                $('#t1').show(2000);
+            });
+            $('#i4').on("input", function() {
+                let a = $('#i3').val();
+                let b = $('#i4').val();
+                if (a == b) {
+                    $('#s1').text("Password Matched").css("color", "green").show();
+                    $('#in1').show();
+                } else {
+                    $('#s1').text("Password Mis-matched").css("color", "red").show();
+                    $('#in1').hide();
+                }
+            });
+        });
+    </script>
+</hmtl>
